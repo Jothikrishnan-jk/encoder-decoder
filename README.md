@@ -44,15 +44,45 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 
 ## Program:
+Decoder
+```
+module decoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&c);
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule
+```
 
+Encoder
+```
+module encoder(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
+```
 
 ## RTL Schematic:
+<img width="342" alt="decoder rtl" src="https://github.com/Jothikrishnan-jk/encoder-decoder/assets/129312867/6a56dbc2-2075-4b4b-b7fe-4f0045bfd011">
 
+
+<img width="328" alt="encoder rtl" src="https://github.com/Jothikrishnan-jk/encoder-decoder/assets/129312867/2d3cb291-5616-4736-8368-51c5faffadf1">
 
 
 
 ## Timing Diagram:
+<img width="671" alt="decoder wave" src="https://github.com/Jothikrishnan-jk/encoder-decoder/assets/129312867/2217191c-2c3f-4d48-9670-11651be77525">
 
+<img width="626" alt="encoder wave form" src="https://github.com/Jothikrishnan-jk/encoder-decoder/assets/129312867/107c966b-5409-4d9f-ab37-a18e15b73f0c">
 
 
 ## Result:
